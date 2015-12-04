@@ -1,0 +1,55 @@
+body {
+  background-color: #151515;
+  color: #aaa;
+}
+
+.starfield {
+    height: 100%;
+    background-repeat: repeat-y;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+.starfield.star-left {
+    left: 0;
+    background-position: left center;
+    background-image: url("assets/background-left.jpg");
+    width: 246px;
+}
+.starfield.star-right {
+    right: 0;
+    background-position: right center;
+    background-image: url("assets/background-right.jpg");
+    width: 404px;
+}
+
+.album {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+  text-align: center;
+}
+.card > img {
+  margin-bottom: .75rem;
+}
+.card .btn {
+  margin-top: -70px;
+  min-width: 200px;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}

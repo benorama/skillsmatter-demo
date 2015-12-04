@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Skillsmatter demo</title>
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="app.css"/>
+
+    <!-- Angular2 JS -->
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/systemjs/system.js"></script>
+    <script src="/libs/angular2/angular2.dev.js"></script>
+    <script src="/libs/angular2/http.dev.js"></script>
+    <script src="/libs/angular2/router.dev.js"></script>
+    <!-- <script src="/libs/chartjs/chart.min.js"></script> -->
+    <script>
+        System.config({
+          packages: {
+            'app': {
+              main: 'bootstrap',
+              defaultExtension: 'js'
+            }
+          },
+          map: {
+            'ng2-charts': 'libs/ng2-charts/Chart.min.js'
+          }
+        });
+        System.import('app')
+          .catch(console.error.bind(console));
+    </script>
+</head>
+<body>
+<app>loading...</app>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div class="album">
+  <div class="container">
+    <div class="row">
+      <h1>Please vote for you favorite character</h1>
+      <div class="card"
+          *ng-for="#character of characters">
+        <img src="assets/starwars-{{character}}.png"
+             width="200">
+        <p>
+          <button class="btn btn-primary"
+                  (click)="onVoteClick(character)">
+              Vote for {{character}}
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

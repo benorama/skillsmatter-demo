@@ -1,0 +1,23 @@
+{
+  "name": "skillsmatter-demo",
+  "description": "Quiz app",
+  "main": "index.js",
+  "authors": [
+    "Benoit Hediard <ben@agorapulse.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/benorama/angular-todos",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha",
+    "jquery": "^2.1.4",
+    "Chart.js": "~1.0.2"
+  }
+}

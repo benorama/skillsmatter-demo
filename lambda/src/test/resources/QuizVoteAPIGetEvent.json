@@ -1,0 +1,10 @@
+{
+  "context": {
+    "httpMethod": "GET"
+  },
+  "headers": {},
+  "params": {
+    "voteId": "some-id"
+  },
+  "data": {}
+}

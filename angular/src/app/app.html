@@ -1,0 +1,34 @@
+<!-- <div class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <a href="#" class="navbar-brand">Admin</a>
+  </div>
+</div> -->
+
+<start (login)="onLogin($event)"
+       *ng-if="state == 'start'"></start>
+
+<gallery [characters]="characters"
+         (vote)="onVote($event)"
+         *ng-if="state == 'gallery'"></gallery>
+
+<end [character]="selectedCharacter"
+      *ng-if="state == 'end'"></end>
+
+<footer class="text-muted"
+  *ng-if="state != 'start'">
+  <div class="container">
+    <p>
+      SkillsMatter demo by <a href="http://twitter.com/benorama">@benorama</a>
+    </p>
+    <p>
+      Star wars avatars by <a href="http://www.oxygenna.com/news/free-set-of-star-wars-avatars">@oxygenna</a>
+    </p>
+  </div>
+</footer>
+
+<!--
+  <base-chart class="chart"
+           [data]="pieChartData"
+           [labels]="pieChartLabels"
+           [chart-type]="pieChartType"></base-chart>
+ -->
