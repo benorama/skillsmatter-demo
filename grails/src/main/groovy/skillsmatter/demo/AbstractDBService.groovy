@@ -1,6 +1,7 @@
 package skillsmatter.demo
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain
+import com.amazonaws.regions.RegionUtils
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable
@@ -15,6 +16,7 @@ abstract class AbstractDBService {
 
     AbstractDBService() {
         client = new AmazonDynamoDBClient(new DefaultAWSCredentialsProviderChain())
+        //client.setRegion(RegionUtils.getRegion('us-west-2'))
         mapper = new DynamoDBMapper(client)
     }
 

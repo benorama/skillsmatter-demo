@@ -31,6 +31,8 @@ export class AppComponent {
     'the_emperor',
     'yoda'
   ]
+  apiBase: String = "http://localhost:8080/api"
+  //apiBase: String = "https://66397ba2a3.execute-api.us-west-2.amazonaws.com/beta"
   quizId: String = "1"
   selectedCharacter: String
   state: String = "start"
@@ -45,8 +47,7 @@ export class AppComponent {
   }
 
   onVote(character: String): void {
-    var apiUrl = "http://localhost:8080/api/quizzes/1/votes"
-    //var apiUrl = "https://wwv05o5gz0.execute-api.us-east-1.amazonaws.com/beta/quizzes/1/votes"
+    var apiUrl = this.apiBase + "/quizzes/" + this.quizId +"/votes"
     var body = JSON.stringify({
       answerId: character,
       userName: this.userName

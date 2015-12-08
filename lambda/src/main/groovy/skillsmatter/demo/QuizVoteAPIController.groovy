@@ -16,7 +16,7 @@ class QuizVoteAPIController {
      * @param context
      * @return
      */
-    def handleRequest(ApiGatewayRequest request, Context context) {
+    def handleRequest(APIGatewayRequest request, Context context) {
         context.logger.log "event: $request"
         def response
         switch (request.context?.httpMethod) {
