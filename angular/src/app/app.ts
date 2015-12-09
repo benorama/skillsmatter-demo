@@ -32,7 +32,7 @@ export class AppComponent {
     'yoda'
   ]
   apiBase: String = "http://localhost:8080/api"
-  //apiBase: String = "https://66397ba2a3.execute-api.us-west-2.amazonaws.com/beta"
+  //apiBase: String = "https://wwv05o5gz0.execute-api.us-east-1.amazonaws.com/beta"
   quizId: String = "1"
   selectedCharacter: String
   state: String = "start"

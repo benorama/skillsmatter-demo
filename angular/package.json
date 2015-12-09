@@ -19,7 +19,6 @@
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
     "gulp-s3-upload": "^1.5.1",
-    "ng2-charts": "0.0.1",
     "systemjs": "^0.19.5"
   }
 }

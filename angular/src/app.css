@@ -3,6 +3,10 @@ body {
   color: #aaa;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .starfield {
     height: 100%;
     background-repeat: repeat-y;
@@ -30,13 +34,11 @@ body {
   background-color: #f7f7f7;
   text-align: center;
 }
+.album h2 {
+  margin-bottom: 20px;
+}
 .card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 0;
-  text-align: center;
+  margin-bottom: 1.5rem;
 }
 .card > img {
   margin-bottom: .75rem;
