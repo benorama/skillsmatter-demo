@@ -16,7 +16,7 @@ abstract class AbstractDBService {
 
     AbstractDBService() {
         client = new AmazonDynamoDBClient(new DefaultAWSCredentialsProviderChain())
-        //client.setRegion(RegionUtils.getRegion('us-west-2'))
+        client.setRegion(RegionUtils.getRegion('us-west-2'))
         mapper = new DynamoDBMapper(client)
     }
 
