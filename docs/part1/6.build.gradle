@@ -1,0 +1,71 @@
+import com.amazonaws.services.lambda.model.InvocationType
+import com.amazonaws.services.lambda.model.Runtime
+import jp.classmethod.aws.gradle.lambda.AWSLambdaInvokeTask
+import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask
+
+// Gradle AWS Plugin
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "jp.classmethod.aws:gradle-aws-plugin:0.22"
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'jp.classmethod.aws.lambda'
+
+group 'skillsmatter.demo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Groovy
+    compile 'org.codehaus.groovy:groovy-all:2.4.4'
+    // AWS Lambda
+    compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
+    //compile 'com.amazonaws:aws-lambda-java-events:1.1.0'
+    // AWS Dynamodb AWS
+    //compile "com.amazonaws:aws-java-sdk-dynamodb:1.10.34"
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtime
+    }
+}
+
+build.dependsOn buildZip
+
+// Gradle AWS Plugin
+aws {
+    profileName = "skillsmatter"
+    region = "us-west-2"
+}
+
+task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
+    functionName = "HelloService"
+    handler = "skillsmatter.demo.HelloService::hello"
+    role = "arn:aws:iam::${aws.accountId}:role/lambda_dynamo"
+    runtime = Runtime.Java8
+    zipFile = buildZip.archivePath
+    memorySize = 128
+    timeout = 15
+}
+
+task invoke(type: AWSLambdaInvokeTask) {
+    functionName = "HelloService"
+    invocationType = InvocationType.RequestResponse
+    payload = '{"name":"Benoit"}'
+    doLast {
+        println "Lambda function result: " + new String(invokeResult.payload.array(), "UTF-8")
+    }
+}

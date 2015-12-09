@@ -1,0 +1,13 @@
+{
+  "context": {
+    "httpMethod": "POST"
+  },
+  "headers": {},
+  "params": {
+    "quizId": "1"
+  },
+  "data": {
+    "userName": "ben",
+    "answerId": "yoda"
+  }
+}

@@ -1,0 +1,29 @@
+//apply plugin: 'groovy'
+apply plugin: 'java'
+
+group 'skillsmatter.demo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Groovy
+    //compile 'org.codehaus.groovy:groovy-all:2.4.4'
+    // AWS Lambda
+    //compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
+    //compile 'com.amazonaws:aws-lambda-java-events:1.1.0'
+    // AWS Dynamodb AWS
+    //compile "com.amazonaws:aws-java-sdk-dynamodb:1.10.34"
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtime
+    }
+}
+
+build.dependsOn buildZip
