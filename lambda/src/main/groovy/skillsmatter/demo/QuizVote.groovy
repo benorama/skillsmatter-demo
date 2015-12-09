@@ -6,7 +6,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable
 import groovy.transform.ToString
 
 @ToString
-@DynamoDBTable(tableName="SkillsmatterVote")
+@DynamoDBTable(tableName="SkillsmatterQuizVote")
 public class QuizVote {
 
     @DynamoDBHashKey // Ex.: "${vote.quizId}_${vote.createdByUserName}_${vote.creationDate.time}"

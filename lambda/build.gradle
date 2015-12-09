@@ -1,6 +1,5 @@
 import com.amazonaws.services.lambda.model.InvocationType
-import com.amazonaws.services.lambda.model.Runtime;
-import jp.classmethod.aws.gradle.lambda.AWSLambdaDeleteFunctionTask
+import com.amazonaws.services.lambda.model.Runtime
 import jp.classmethod.aws.gradle.lambda.AWSLambdaInvokeTask
 import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask
 
@@ -52,50 +51,21 @@ aws {
     profileName = "skillsmatter"
 }
 
-task deployAll(group: 'AWS', description: 'Create / Update all Lambda functions')
-deployAll.dependsOn {
-    tasks.findAll { task -> task.name.startsWith('deploy') && !task.name.equals('deployAll') }
-}
-
-task deployInsightAPIController(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
-    functionName = "QuizInsightAPIController"
-    handler = "skillsmatter.demo.QuizInsightAPIController::handleRequest"
+task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
+    functionName = "HelloService"
+    handler = "skillsmatter.demo.HelloService::hello"
     role = "arn:aws:iam::${aws.accountId}:role/lambda_dynamo"
     runtime = Runtime.Java8
     zipFile = buildZip.archivePath
-    memorySize = 256
+    memorySize = 128
     timeout = 15
 }
 
-task deployVoteAPIController(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
-    functionName = "QuizVoteAPIController"
-    handler = "skillsmatter.demo.QuizVoteAPIController::handleRequest"
-    role = "arn:aws:iam::${aws.accountId}:role/lambda_dynamo"
-    runtime = Runtime.Java8
-    zipFile = buildZip.archivePath
-    memorySize = 256
-    timeout = 15
-}
-
-task deployVoteDBEventProcessor(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
-    functionName = "QuizVoteDBEventProcessor"
-    handler = "skillsmatter.demo.QuizVoteDBEventProcessor::handleRequest"
-    role = "arn:aws:iam::${aws.accountId}:role/lambda_dynamo_streams"
-    runtime = Runtime.Java8
-    zipFile = buildZip.archivePath
-    memorySize = 256
-    timeout = 15
-}
-
-/*task invokeAPIEventProcessor(type: AWSLambdaInvokeTask) {
-    functionName = "QuizVoteAPIEventProcessor"
+task invoke(type: AWSLambdaInvokeTask) {
+    functionName = "HelloService"
     invocationType = InvocationType.RequestResponse
-    payload = file("src/test/resources/QuizVoteAPIGetEvent.json")
+    payload = '{"name":"Benoit"}'
     doLast {
         println "Lambda function result: " + new String(invokeResult.payload.array(), "UTF-8")
     }
 }
-
-task deleteFunction(type: AWSLambdaDeleteFunctionTask) {
-    functionName = "foobar"
-}*/
