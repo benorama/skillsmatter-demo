@@ -11,10 +11,11 @@ class QuizVoteController {
 
     def create() {
         def data = request.JSON
-        if (!data.userName || !data.quizId || !data.answerId) {
+        if (!data.userName || !params.quizId || !data.answerId) {
             render status: BAD_REQUEST
+            return
         }
-        respond quizVoteService.create(data.answerId, data.quizId, data.userName)
+        respond quizVoteService.create(data.answerId, params.quizId, data.userName)
     }
 
     def show() {

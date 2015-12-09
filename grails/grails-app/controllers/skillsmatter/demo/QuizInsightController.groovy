@@ -11,6 +11,7 @@ class QuizInsightController {
     def index() {
         if (!params.quizId) {
             render status: BAD_REQUEST
+            return
         }
         respond quizInsightService.query(params.quizId)
 
