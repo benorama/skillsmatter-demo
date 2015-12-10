@@ -1,23 +1,29 @@
-==========
-AWS Lambda
-==========
+# Part 1
 
-0. Reset _build.gradle_ and delete groovy src except *APIGatewayRequest.groovy*
+## AWS Lambda
 
-1. Add groovy support to _build.gradle_
-
-2. Create *skillsmatter.demo.HelloService.groovy* and *hello()* function
-
+0. Reset **build.gradle** and delete groovy src except **APIGatewayRequest.groovy**
+1. Add groovy support to **build.gradle**
+2. Create **skillsmatter.demo.HelloService.groovy** and **hello()** function
+```groovy
+Map hello(data, Context context) {
+context.logger.log "Received $data"
+[greeting: "Hello ${data?.name}".toString()]
+}
+```
 3. Build deployment package: `gradle build`
+4. Create **HelloService** Lambda function
+- function name: **HelloService**
+- runtime: **Java**
+- handler: **skillsmatter.demo.HelloService::hello**
+- memory: **128MB**
+5. **Test** HelloService
+```json
+{
+"name": "Benoit"
+}
+```
 
-4. Create HelloService Lambda
-	- function name: *HelloService*
-	- runtime: *Java*
-	- handler: *skillsmatter.demo.HelloService::hello*
-	- memory: *128MB*
+**Optional**
 
-5. Test HelloService
-
-Optional
-
-6. Update _build.gradle_ to show Gradle AWS Plugin
+6. Update **build.gradle** to demo Gradle AWS Plugin `gradle deploy` and `gradle invoke` tasks
