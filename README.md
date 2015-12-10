@@ -6,15 +6,16 @@ This is the demo app for my [Skillsmatter Groovy & Grails eXchange 2015](https:/
 # Technology used
 
 Front:
-- Typescript 
-- Angular2 (alpha36)
+- _Typescript_ (1.6.2)
+- _Angular2_ (alpha36)
+- _Bootstrap4_ (alpha)
 
 Back:
-- Groovy (2.4.4)
-- Grails (3.1.0.M3)
-- AWS Lambda
-- AWS API Gateway
-- AWS DynamoDB
+- _Groovy_ (2.4.4)
+- _Grails_ (3.1.0.M3)
+- _AWS Lambda_
+- _AWS API Gateway_
+- _AWS DynamoDB_
 
 # Running the app
 
