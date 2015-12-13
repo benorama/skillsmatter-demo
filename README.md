@@ -19,10 +19,20 @@ Back:
 
 # Running the app
 
-To launch Angular app, execute:
+To run the front end (Angular app), execute:
 - `bower install`
 - `npm install`
 - `gulp`
 
-To launch Grails app, execute:
+To run the back end (Grails app), execute:
 - `grails run-app`
+
+Note: you must have configured your AWS credentials locally (with DynamoDB permissions).
+You can create `SkillsmatterQuizInsight` and `SkillsmatterQuizVote` tables automatically by running the following script at `http://localhost:8080/console`.
+
+```groovy
+import skillsmatter.demo.*
+
+ctx.quizInsightService.createTable(QuizInsight)
+ctx.quizVoteService.createTable(QuizVote)
+```
