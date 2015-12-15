@@ -6,7 +6,7 @@ This is the demo app for my [Skillsmatter Groovy & Grails eXchange 2015](https:/
 # Slides
 
 GGX presentation can be found here:
-[https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy]:(https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy)
+[https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy](https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy)
 
 # Technology used
 
