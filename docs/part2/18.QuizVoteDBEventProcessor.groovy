@@ -23,7 +23,7 @@ class QuizVoteDBEventProcessor implements RequestHandler<DynamodbEvent, String> 
         try {
             Map voteByQuizIdAndAnswerIds = [:]
             event.records.each { DynamodbEvent.DynamodbStreamRecord record ->
-                if (record.dynamodb.newImage.answerId && record.dynamodb.newImage.quizId) {
+                if (record.dynamodb?.newImage?.answerId && record.dynamodb?.newImage?.quizId) {
                     String answerId = record.dynamodb.newImage.answerId.getS() // Get string from DynamoDB AttributeValue
                     String quizId = record.dynamodb.newImage.quizId.getS() // Get string from DynamoDB AttributeValue
                     if (!voteByQuizIdAndAnswerIds[quizId]) {
