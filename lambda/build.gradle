@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     // Groovy
-    //compile 'org.codehaus.groovy:groovy-all:2.4.4'
+    //compile 'org.codehaus.groovy:groovy:2.4.5'
     // AWS Lambda
     //compile 'com.amazonaws:aws-lambda-java-core:1.1.0'
     //compile 'com.amazonaws:aws-lambda-java-events:1.1.0'
