@@ -3,6 +3,11 @@ Skillsmatter demo app
 
 This is the demo app for my [Skillsmatter Groovy & Grails eXchange 2015](https://skillsmatter.com/conferences/6863-groovy-grails-exchange-2015) in London: **Serverless microservice using AWS Lambda and Groovy**.
 
+# Slides
+
+GGX presentation can be found here:
+[https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy]:(https://speakerdeck.com/benorama/serverless-microservices-using-aws-lambda-and-groovy)
+
 # Technology used
 
 Front:
